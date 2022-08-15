@@ -8,7 +8,7 @@ python3 -m pip install wheel setuptools testresources
 pip3 install --upgrade pip
 pip3 install -r build/requirements.txt
 read -p "Enter your android version: " adv
-wget https://raw.githubusercontent.com/nhAsif/config/main/12.1/nikgapps.config config/$adv
+wget https://raw.githubusercontent.com/nhAsif/config/main/12.1/nikgapps.config -P config/$adv
 read -p "Enter your gapps name & edit your gapps config: " name
 mv config/$adv/nikgapps.config $name.config
 nano config/$adv/*.config

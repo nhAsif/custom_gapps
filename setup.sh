@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
-sudo apt install software-properties-common -y
+sudo apt install aapt -y
 sudo apt update
-sudo apt install python3
+sudo apt install python3 -y
 python3 -m pip install wheel setuptools testresources
 pip3 install --upgrade pip
 pip3 install -r build/requirements.txt
-nano config/12.1/*.config
+git clone --depth=1 https://github.com/nhAsif/build_nikgapps.git -b main build
+git clone --depth=1 https://github.com/nhAsif/config.git -b main config
+read -p "Enter your android version: " adv
+wget https://raw.githubusercontent.com/nhAsif/config/main/12.1/nikgapps.config config/$adv
+read -p "Enter your gapps name & edit your gapps config: " name
+mv config/$adv/nikgapps.config $name.config
+nano config/$adv/*.config
+python3 build/config_control.py $adv

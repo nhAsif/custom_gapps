@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir Gapps
-cd Gapps
 git clone --depth=1 https://github.com/nhAsif/build_nikgapps.git -b main build
 git clone --depth=1 https://github.com/nhAsif/config.git -b main config
 sudo apt install aapt -y
